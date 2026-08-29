@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #1a252c;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .container{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform-style: preserve-3d;
+      flex-shrink: 0;
+      padding: 0 20px;
+    }
+    .container .box{
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transition: .5s;
+      -webkit-box-reflect: below 1px linear-gradient(transparent,#0002);
+      flex-shrink: 0;
+    }
+    /* 平板及以下缩小照片，保证全部可见 */
+    @media (max-width: 1024px) {
+      .container .box{
+        width: 220px;
+        height: 220px;
+      }
+    }
+    /* 手机端进一步缩小 */
+    @media (max-width: 640px) {
+      .container .box{
+        width: 150px;
+        height: 150px;
+      }
+      .container{
+        padding: 0 10px;
+      }
+    }
+    .container .box img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .container:hover > :not(:hover){
+      margin: 0 -20px;
+      filter: drop-shadow(0 0 25px #000)
+              drop-shadow(0 0 45px #000);
+      transform: perspective(500px) rotateY(45deg) scale(0.95);
+    }
+    .container .box:hover ~ .box{
+      transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    }
+    .container .box:hover{
+      transform: perspective(500px) rotateY(0) scale(1.5);
+    }
+    /* 跳转图片按钮的文字提示 */
+    .container .box .tip{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .container .box:hover .tip{
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+<audio id="bgMusic" loop="loop" preload="auto">
+  <source src="../music/shun.mp3">
+</audio>
+<div class="container">
+
+  <div class="box">
+    <img src="../img/xb3.jpg" alt="">
+  </div>
+  <div class="box">
+    <img src="../img/xb4.jpg" alt="">
+  </div>
+  <div class="box">
+    <img src="../img/xb9.jpg" alt="">
+  </div>
+  <div class="box">
+    <p> <a href ="./tree.html"> <img src="../img/xb2.jpg" alt=""></a></p>
+    <span class="tip">要不要点一下</span>
+  </div>
+  <div class="box">
+    <img src="../img/xb7.jpg" alt="">
+  </div>
+  <div class="box">
+    <img src="../img/xb8.jpg" alt="">
+  </div>
+  <div class="box">
+    <img src="../img/xb5.jpg" alt="">
+  </div>
+</div>
+<a href="javascript:history.back()" style="position:fixed;right:20px;bottom:20px;z-index:9999;display:inline-block;padding:10px 20px;background:rgba(0,0,0,.5);color:#fff;text-decoration:none;border-radius:25px;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,.3);font-family:Microsoft YaHei;">← 返回</a>
+<script src="../js/music-continue.js"></script>
+</body>
+</html>

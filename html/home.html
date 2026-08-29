@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生日快乐 - 首页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .title h1 {
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+      letter-spacing: 4px;
+    }
+    .title p {
+      margin-top: 12px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, .9);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      background: rgba(255, 255, 255, .85);
+      border-radius: 16px;
+      padding: 28px 24px;
+      color: #444;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+      transition: transform .3s, box-shadow .3s, background .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, .18);
+      background: rgba(255, 255, 255, .95);
+    }
+    .card .icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #d96c75;
+    }
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #777;
+    }
+    .card::after {
+      content: "→";
+      position: absolute;
+      right: 20px;
+      bottom: 16px;
+      font-size: 22px;
+      color: #ee9ca7;
+      opacity: 0;
+      transition: opacity .3s, transform .3s;
+    }
+    .card:hover::after {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+    .footer {
+      margin-top: 50px;
+      color: rgba(255, 255, 255, .8);
+      font-size: 14px;
+    }
+    /* 气泡背景 */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .bubbles span {
+      position: absolute;
+      bottom: -80px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, .25);
+      border-radius: 50%;
+      animation: rise 18s infinite ease-in;
+    }
+    .bubbles span:nth-child(1) { left: 10%; animation-duration: 16s; }
+    .bubbles span:nth-child(2) { left: 25%; width: 60px; height: 60px; animation-duration: 20s; }
+    .bubbles span:nth-child(3) { left: 40%; animation-duration: 13s; }
+    .bubbles span:nth-child(4) { left: 55%; width: 70px; height: 70px; animation-duration: 24s; }
+    .bubbles span:nth-child(5) { left: 70%; animation-duration: 17s; }
+    .bubbles span:nth-child(6) { left: 85%; width: 50px; height: 50px; animation-duration: 22s; }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(1); opacity: 0; }
+      10%  { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(.6); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="title">
+    <h1>🎂 生日快乐</h1>
+    <p>选择你想要进入的页面</p>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="./BirthdayCake.html">
+      <div class="icon">🎂</div>
+      <h2>生日蛋糕</h2>
+      <p>一支会动起来的蛋糕，为你点亮生日蜡烛。</p>
+    </a>
+    <a class="card" href="./Memories.html">
+      <div class="icon">💌</div>
+      <h2>回忆相册</h2>
+      <p>Memories 时光相册，点滴祝福。</p>
+    </a>
+    <a class="card" href="./photos.html">
+      <div class="icon">🖼️</div>
+      <h2>照片墙</h2>
+      <p>3D 立体照片墙，悬停查看每张照片。</p>
+    </a>
+    <a class="card" href="./tree.html">
+      <div class="icon">🌳</div>
+      <h2>智慧树</h2>
+      <p>生长的友谊之树，点点点让它开花。</p>
+    </a>
+    <a class="card" href="./love.html">
+      <div class="icon">💖</div>
+      <h2>爱心粒子</h2>
+      <p>粒子组成的爱心动画，浪漫的生日祝福。</p>
+    </a>
+    <a class="card" href="./EasterEgg.html">
+      <div class="icon">🎆</div>
+      <h2>生日烟花</h2>
+      <p>烟花绽放出"生日快乐"的文字，惊喜彩蛋。</p>
+    </a>
+    <a class="card" href="./login.html">
+      <div class="icon">🔐</div>
+      <h2>登录入口</h2>
+      <p>进入专属生日空间的钥匙。</p>
+    </a>
+  </div>
+
+  <div class="footer">© 生日快乐 · 愿你天天开心</div>
+
+
+</body>
+
+</html>
